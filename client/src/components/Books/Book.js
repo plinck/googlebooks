@@ -19,8 +19,7 @@ class Book extends React.Component {
 
     render() {      
         // decontruct props
-        let { _id, title, authors, description, imageUrl, url} =  this.props;
-        const {refreshParentPage, deleteBook} = this.props;
+        let { title, authors, description, imageUrl, url} =  this.props;
 
         if (!imageUrl) {
             imageUrl = "./images/NewsScraper275x200.png";

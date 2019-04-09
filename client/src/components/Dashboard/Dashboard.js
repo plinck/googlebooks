@@ -9,7 +9,8 @@ class Dashboard extends React.Component {
                     <div className="card">
                         <div className="card-content">
                             <span className="flow-text card-title">Dashboard - Welcome</span>
-                            <p>Click Books <i className="material-icons blue-text">save</i>to View Books</p>
+                            <p>Click Google Books <i className="material-icons blue-text">save</i>to Search for Books</p>
+                            <p>Click Books <i className="material-icons blue-text">save</i>to View Saved Books</p>
                             <p>Click Open <i className="material-icons blue-text">open_in_browser</i> to open web page for that book</p>
                         </div>
                     </div>

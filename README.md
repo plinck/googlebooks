@@ -10,6 +10,8 @@ React-based Google Books Search app. This assignment requires React components, 
 
 This is deployed to **Google Cloud Platform**.  GCP provides several huge advantages especially as it relates to security and hiding keys and credentials.  When app is running in test mode, sensitive data is stored in hidden files on developers local machine. When depoloyed to google cloud platform, the services keys, credentials etc are automatically protected and accessed inside the google cloud platform App engine.
 
+NOTE: I initially tried to deploy my homework to GCP and I got an error that said I had terms in my project name that were NOT allowed.  So I had to change the name from `paullinck-googlebooks` to `paullinck-paulsbooks`.  Haha
+
 ## Links
 
 * [Live Google Cloud Platform Site](https://paullinck-paulsbooks.appspot.com)
@@ -34,7 +36,7 @@ This is deployed to **Google Cloud Platform**.  GCP provides several huge advant
 
 ### Instructions
 
-* This application requires at minimum 2 pages, check out the following mockup images for each page:
+* Check out the following mockup images for each page:
 
   * [Search](Search.png) - User can search for books via the Google Books API and render them here. User has the option to "View" a book, bringing them to the book on Google Books, or "Save" a book, saving it to the Mongo database.
 
