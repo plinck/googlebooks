@@ -1,1 +1,1 @@
-gcloud projects create paullinck-googlebooks
+gcloud projects create paullinck-paulsbooks

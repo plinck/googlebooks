@@ -1,4 +1,4 @@
-# googlebooks
+# paulsbooks
 
 ## Overview
 
@@ -12,10 +12,9 @@ This is deployed to **Google Cloud Platform**.  GCP provides several huge advant
 
 ## Links
 
-* [Live Google Cloud Platform Site](https://paullinck-newsscraper.appspot.com)
-* [Live Heroku Site](https://paullinck-newsscraper.herokuapp.com)
-* [GitHub for this](https://github.com/plinck/newsscraper)
-* [My Portfolio](https://plinck.github.io/My-Portfolio/)
+* [Live Google Cloud Platform Site](https://paullinck-paulsbooks.appspot.com)
+* [GitHub for this](https://github.com/plinck/paulsbooks)
+* [My Portfolio](https://paullinck.com/)
 
 ## Technologies Used
 
@@ -43,7 +42,7 @@ This is deployed to **Google Cloud Platform**.  GCP provides several huge advant
 
 1. Start by using the 07-Ins_Mern example as a base for your application.
 
-2. Add code to connect to a MongoDB database named `googlebooks` using the mongoose npm package.
+2. Add code to connect to a MongoDB database named `paulsbooks` using the mongoose npm package.
 
 3. Using mongoose, then create a Book schema.
 

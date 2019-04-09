@@ -1,2 +1,2 @@
-gcloud config set project paullinck-googlebooks
+gcloud config set project paullinck-paulsbooks
 gcloud app browse
