@@ -21,20 +21,18 @@ class Navigation extends React.Component {
             <div>
                 <ul className="sidenav" id="mobile-links">
                     <a href="/" className="brand-logo"><i className="material-icons">markunread_mailbox</i>Home</a>
-                    <li><a href="/Articles">Scrape</a></li>
-                    <li><a href="/ArticlesSaved">Saved</a></li>
+                    <li><a href="/Books">Books</a></li>
                 </ul>
                 <nav className="nav-wrapper indigo">
                     <div className="container">
-                        <a href="/" className="brand-logo center hide-on-large-only">NewsScraper</a>
-                        <a href="/" className="brand-logo hide-on-med-and-down"><i className="material-icons">markunread_mailbox</i>NewsScraper</a>
+                        <a href="/" className="brand-logo center hide-on-large-only">Google Books</a>
+                        <a href="/" className="brand-logo hide-on-med-and-down"><i className="material-icons">markunread_mailbox</i>Books</a>
                         <a href="#!" className="sidenav-trigger" data-target="mobile-links">
                             <i className="material-icons">menu</i>
                         </a>
                         <ul className="right hide-on-med-and-down">
                             <li><Link to="/">Dashboard</Link></li>
-                            <li><NavLink to="/Articles">Scrape<i className="material-icons white-text right">content_cut</i></NavLink></li>
-                            <li><NavLink to="/ArticlesSaved">Saved<i className="material-icons white-text right">save</i></NavLink></li>
+                            <li><NavLink to="/Books">Books<i className="material-icons white-text right">save</i></NavLink></li>
                         </ul>
                     </div>
                 </nav>

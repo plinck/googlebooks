@@ -1,1 +1,1 @@
-gcloud projects create paullinck-newsscraper
+gcloud projects create paullinck-googlebooks

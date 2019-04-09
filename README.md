@@ -1,16 +1,14 @@
-# NewsScraper
+# googlebooks
 
 ## Overview
 
 ![NewsScraper](client/public/images/NewsScraper275x200.png)
 
-Scrapes news articles and allows you to save for later viewing.  Also lets users view and leave comments on the latest news. Current I am scraping news articles from CNET and Free Beacon but have it setup to add as many as I like.
-
-**NOTE**:  The app is fully deployed to the gooogle could platform and Heroku.  I did NOT use handlebars since I chose to use react instead since REACT is a much more important tool moving forward.
+React-based Google Books Search app. This assignment requires React components, helper/util functions, and  React lifecycle methods to query and display books based on user searches. You'll also use Node, Express and MongoDB so that users can save books to review or purchase later.
 
 ### Deployment
 
-This is deployed to **Google Cloud Platform** AND Heroku -- I deployed to both.  GCP provides several huge advantages especially as it relates to security and hiding keys and credentials.  When app is running in test mode, sensitive data is stored in hidden files on developers local machine. When depoloyed to google cloud platform, the services keys, credentials etc are automatically protected and accessed inside the google cloud platform App engine.
+This is deployed to **Google Cloud Platform**.  GCP provides several huge advantages especially as it relates to security and hiding keys and credentials.  When app is running in test mode, sensitive data is stored in hidden files on developers local machine. When depoloyed to google cloud platform, the services keys, credentials etc are automatically protected and accessed inside the google cloud platform App engine.
 
 ## Links
 
@@ -26,48 +24,119 @@ This is deployed to **Google Cloud Platform** AND Heroku -- I deployed to both. 
 * [x] Node.js, Express
 * [x] MongoDB and Mongose (for Schemas)
 * [x] MongoDB Atlas Clusters
-* [x] Axios (in node server and REACT components)
-* [x] Cheerio
 * [x] Materialize
 * [x] Google Cloud Platform
-* [x] Heroku (hosted on Heroku and GCP)
 
 ## Screenshots
 
 ![ss1 animated](client/public/images/ss1.gif)
 
-![ss2](client/public/images/ss2.png)
-
-![ss3](client/public/images/ss3.png)
-
-![ss4](client/public/images/ss4.png)
-
 ## Details
 
-  1. Whenever a user visits, the app scrapes stories from a news outlet displays artilces for the user.  If there is an image with teh article, it displays it, otherwise, I provide a generic news image.  
-     * Each scraped article is saved to Mongo only when the user clicks the heart icon (save).  I chose not to save all articles since there is no reason to save articles the user does not care about. The app scrapes and display the following information for each article:
+### Instructions
 
-     * Headline - the title of the article
+* This application requires at minimum 2 pages, check out the following mockup images for each page:
 
-     * Summary - a short summary of the article
+  * [Search](Search.png) - User can search for books via the Google Books API and render them here. User has the option to "View" a book, bringing them to the book on Google Books, or "Save" a book, saving it to the Mongo database.
 
-     * URL - the url to the original article
-  
-     * ImageUrl - if it exists
+  * [Saved](Saved.png) - Renders all books saved to the Mongo database. User has an option to "View" the book, bringing them to the book on Google Books, or "Delete" a book, removing it from the Mongo database.
 
-  2. Users can leave comments on the articles they saved to revisit them later.
+1. Start by using the 07-Ins_Mern example as a base for your application.
 
-  3. Users can delete saved articles and comments left on articles. All stored comments should be visible to every user.
+2. Add code to connect to a MongoDB database named `googlebooks` using the mongoose npm package.
 
-## Architecture
+3. Using mongoose, then create a Book schema.
 
-### Model View Controller (with lightweight controller routing to business and data logic)
+4. At a minimum, books should have each of the following fields:
 
-* Views / `/client` - `/public` (dev) and `/build` (productoion) HTML/CSS/JS using REACT
-  * Materialize JS and CSS
-  * REACT Components
+* `title` - Title of the book from the Google Books API
 
-* Controllers - `/server.js` - REACT Static Routes and `/api` routes for Mongo and Cheerio
+* `authors` - The books's author(s) as returned from the Google Books API
 
-* Model (Data) - `/model`
-  * Uses Mongo and Mongoose for Data Layer
+* `description` - The book's description as returned from the Google Books API
+
+* `image` - The Book's thumbnail image as returned from the Google Books API
+
+* `link` - The Book's information link as returned from the Google Books API
+
+* Creating `documents` in your `books` collection similar to the following:
+
+    ```js
+    {
+      authors: ["Suzanne Collins"]
+      description: "Set in a dark vision of the near future, a terrifying reality TV show is taking place. Twelve boys and twelve girls are forced to appear in a live event called The Hunger Games. There is only one rule: kill or be killed. When sixteen-year-old Katniss Everdeen steps forward to take her younger sister's place in the games, she sees it as a death sentence. But Katniss has been close to death before. For her, survival is second nature."
+      image: "http://books.google.com/books/content?id=sazytgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+      link: "http://books.google.com/books?id=sazytgAACAAJ&dq=title:The+Hunger+Games&hl=&source=gbs_api"
+      title: "The Hunger Games"
+    }
+    ```
+
+5. Create a layout similar to the mockups displayed above. This should be a SPA (Single Page Application) that uses [`react-router-dom`](https://github.com/reactjs/react-router) to navigate, hide and show your React components without changing the route within Express.
+
+* The layout should include at least two React Components for each page `Search` and `Saved`.
+
+* Feel free to try out alternative CSS framework to Bootstrap.
+
+6. Add the following Express routes for your app:
+
+* `/api/books` (get) - Should return all saved books as JSON.
+
+* `/api/books` (post) - Will be used to save a new book to the database.
+
+* `/api/books/:id` (delete) - Will be used to delete a book from the database by Mongo `_id`.
+
+* `*` (get) - Will load your single HTML page in `client/build/index.html`. Make sure you have this _after_ all other routes are defined.
+
+* Deploy your application to Heroku once complete. **You must use Create React App** and current versions of React and React-Router-Dom for this assignment.
+
+- - -
+
+### Bonus Live Updates to Saved Books
+
+* Use React routing and [socket.io](http://socket.io) to create a notification or a component that triggers whenever a user saves an book. Your message should include the title of the saved book.
+
+  * Say you have multiple browsers open, each one visiting your site. If you save an book in one browser, then all of your browsers should notify you that a new book was saved.
+
+  * [Socket.io NPM package](https://www.npmjs.com/package/socket.io)
+
+### Reminder: Submission on BCS
+
+* **This assignment must be deployed.** * Please submit both the deployed Heroku link to your homework AND the link to the Github Repository!
+
+- - -
+
+### Minimum Requirements
+
+Attempt to complete homework assignment as described in instructions. If unable to complete certain portions, please pseudocode these portions to describe what remains to be completed. Hosting on Heroku and adding a README.md are required for this homework. In addition, add this homework to your portfolio, more information can be found below.
+
+- - -
+
+### Create a README.md
+
+Add a `README.md` to your repository describing the project. Here are some resources for creating your `README.md`. Here are some resources to help you along the way:
+
+* [About READMEs](https://help.github.com/articles/about-readmes/)
+
+* [Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
+
+- - -
+
+### Add To Your Portfolio
+
+After completing the homework please add the piece to your portfolio. Make sure to add a link to your updated portfolio in the comments section of your homework so the TAs can easily ensure you completed this step when they are grading the assignment. To receive an 'A' on any assignment, you must link to it from your portfolio.
+
+- - -
+
+### Hosting on Heroku
+
+Now that we have a backend to our applications, we use Heroku for hosting. Please note that while **Heroku is free**, it will request credit card information if you have more than 5 applications at a time or are adding a database.
+
+Please see [Heroku’s Account Verification Information](https://devcenter.heroku.com/articles/account-verification) for more details.
+
+- - -
+
+### One More Thing
+
+If you have any questions about this project or the material we have covered, please post them in the community channels in slack so that your fellow developers can help you! If you're still having trouble, you can come to office hours for assistance from your instructor and TAs.
+
+**Good Luck!**
