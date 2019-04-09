@@ -16,16 +16,16 @@ app.use(express.urlencoded({
 app.use(express.json());
 
 
-// const uri = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0-1qm5r.gcp.mongodb.net/paulsbooksdb?retryWrites=true`;
-// // Connect to the Mongo DB ATLAS
-// mongoose.connect(uri, {
-//     useNewUrlParser: true
-// });
-
-// Connect to the Mongo DB LOCAL
-mongoose.connect("mongodb://localhost:27017/newsscraperdb", {
+const uri = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0-1qm5r.gcp.mongodb.net/paulsbooksdb?retryWrites=true`;
+// Connect to the Mongo DB ATLAS
+mongoose.connect(uri, {
     useNewUrlParser: true
 });
+
+// Connect to the Mongo DB LOCAL
+// mongoose.connect("mongodb://localhost:27017/newsscraperdb", {
+//     useNewUrlParser: true
+// });
 
 require("./routes/api-books-routes.js")(app);
 
