@@ -15,7 +15,7 @@ NOTE: I initially tried to deploy my homework to GCP and I got an error that sai
 ## Links
 
 * [Live Google Cloud Platform Site](https://paullinck-paulsbooks.appspot.com)
-* [GitHub for this](https://github.com/plinck/paulsbooks)
+* [GitHub for this](https://github.com/plinck/googlebooks)
 * [My Portfolio](https://paullinck.com/)
 
 ## Technologies Used
