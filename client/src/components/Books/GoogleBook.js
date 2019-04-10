@@ -53,18 +53,15 @@ class GoogleBook extends React.Component {
             imageUrl = "./images/NewsScraper275x200.png";
         } 
 
+        let imgStyle = {
+            height: '100'
+        };
+
         return ( 
+              
             <div className="card">
                 <div className="card-image">
-                    <img className="materialboxed" src={imageUrl} alt="" />
-                    <a href="#!" className="halfway-fab btn-floating grey">
-                        <i className={this.favsClasses}
-                            onMouseOver={this.handleMouseOver}
-                            onMouseOut={this.handleMouseOut}
-                            onClick={this.saveGoogleBook.bind(this)}
-                            >favorite
-                        </i>
-                    </a>
+                    <img src={imageUrl} style={imgStyle} alt="" />
                 </div>
                 <div className="card-content">
                     <span className="flow-text card-title">{title}</span>
@@ -72,6 +69,13 @@ class GoogleBook extends React.Component {
                     <p>{description}</p>
                 </div>
                 <div className="card-action">
+                    <a href="#!" className="btn-floating grey">
+                        <i className={this.favsClasses}
+                            onMouseOver={this.handleMouseOver}
+                            onMouseOut={this.handleMouseOut}
+                            onClick={this.saveGoogleBook.bind(this)}>favorite
+                        </i>
+                    </a>
                     <a target="_blank" rel="noopener noreferrer" href={url} className="indigo-text text-darken-4" data-target="modal-post">
                         <i className="googleBookInfo material-icons left">open_in_browser</i>
                     </a>
