@@ -13,7 +13,6 @@ module.exports = function (app) {
         db.Book.find({})
             .then(function (dbBook) {
                 // If we were able to successfully find Articles, send them back to the client with their notes
-                console.log(dbBook);
                 res.json(dbBook);
             })
             .catch((err) => {
@@ -28,7 +27,6 @@ module.exports = function (app) {
         book.save({book})
             .then( (dbBook) => {
                 // If we were able to successfully find Articles, send them back to the client with their notes
-                console.log(dbBook);
                 res.json(dbBook);
             })
             .catch((err) => {
@@ -42,7 +40,6 @@ module.exports = function (app) {
         db.Book.deleteOne({_id: _id})
             .then( (dbBook) => {
                 // If we were able to successfully find Articles, send them back to the client with their notes
-                console.log(dbBook);
                 res.json(dbBook);
             })
             .catch((err) => {

@@ -48,7 +48,7 @@ class GoogleBook extends React.Component {
       
         let { title, authors, description, imageUrl, url} =  this.props;
         if (!imageUrl) {
-            imageUrl = "./images/NewsScraper275x200.png";
+            imageUrl = "./images/paulsbooks275x200.png";
         } 
 
         return ( 
