@@ -8,8 +8,7 @@ class Book extends React.Component {
     }
 
     // Delete 
-    deleteBook = (event) => {
-        event.preventDefault();
+    deleteBook = () => {
         this.props.deleteBook(this.props._id);
     }
 
@@ -26,27 +25,30 @@ class Book extends React.Component {
         } 
 
         return ( 
-            <div className="card">
-                <div className="card-image">
-                    <img className="materialboxed" src={imageUrl} alt="" />
-                    <a href="#!" className="halfway-fab btn-floating grey">
-                        <i className={this.favsClasses}>favorite</i>
-                    </a>
+            <div className="col s12">
+                <div className="card horizontal">
+                    <div className="card-image">
+                        <img src={imageUrl} alt={title} />
+                    </div>
+                    <div className="card-stacked">
+                        <div className="card-content">
+                            <span className="card-title">{title}</span>
+                            <h6>{authors}</h6>
+                            <p>{description}</p>
+                        </div>
+                        <div className="card-action">
+                            <a target="_blank" rel="noopener noreferrer" href={url}>More Info
+                            </a>
+                            <a href="#!" className="indigo-text text-darken-4"
+                                onClick={() => this.deleteBook()}>Delete
+                            </a>
+                            <a href="#!" className="btn-floating grey" alt="Save Book">
+                                <i className={this.favsClasses}>favorite</i>
+                            </a> 
+                        </div>
+                    </div>
                 </div>
-                <div className="card-content">
-                    <span className="flow-text card-title">{title}</span>
-                    <p className="truncate">{authors}</p>
-                    <p>{description}</p>
-                </div>
-                <div className="card-action">
-                    <a target="_blank" rel="noopener noreferrer" href={url} className="indigo-text text-darken-4" data-target="modal-post">
-                        <i className="articleInfo material-icons left">open_in_browser</i>
-                    </a>
-                    <a href="#!" className="indigo-text text-darken-4">
-                        <i className="articleDelete material-icons left" onClick={this.deleteBook.bind(this)}>delete</i>
-                    </a>
-                </div>
-            </div>          
+            </div>
         );
     }
 }

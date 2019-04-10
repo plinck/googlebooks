@@ -14,7 +14,7 @@ class App extends Component {
             <div className="container">
                 <Navigation />
                 <Route exact path="/" component={Dashboard} /> 
-                <Route path="/Books" component={Books} />      
+                <Route path="/Books" component={Books} classNames="col s12 m6 l6"/>      
                 <Route path="/GoogleBooks" component={GoogleBooks} />      
             </div>
         </Router>

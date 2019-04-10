@@ -1,6 +1,5 @@
 import React from 'react';
 import Book from "./Book";
-import BookForm from "./BookForm";
 import axios from "axios";
 
 class Books extends React.Component {
@@ -54,16 +53,14 @@ class Books extends React.Component {
     }
     
     render() {
+        const classNames = this.props.classNames;
+
         return (
             <div>
                 <div className="row">
-                    <BookForm addBook={this.addBook}/>
-                </div>
-                <hr />
-                <div className="row">
                 {this.state.books.map((book, i) => {
                     return(            
-                        <div className="col s12 m6 l6">
+                        <div className={classNames}>
                             <Book 
                             key={book._id}
                             refreshParentPage={this.refreshPage}

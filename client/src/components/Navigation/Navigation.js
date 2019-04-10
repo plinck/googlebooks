@@ -16,14 +16,14 @@ class Navigation extends React.Component {
             // <!--  NAV -->
             <div>
                 <ul className="sidenav" id="mobile-links">
-                    <a href="/" className="brand-logo"><i className="material-icons">markunread_mailbox</i>Home</a>
+                    <a href="/" className="brand-logo"><i className="material-icons">search</i>Home</a>
                     <li><a href="/Books">Books</a></li>
                     <li><a href="/GoogleBooks">GoogleBooks</a></li>
                 </ul>
                 <nav className="nav-wrapper indigo">
                     <div className="container">
                         <a href="/" className="brand-logo center hide-on-large-only">Google Books</a>
-                        <a href="/" className="brand-logo hide-on-med-and-down"><i className="material-icons">markunread_mailbox</i>Books</a>
+                        <a href="/" className="brand-logo hide-on-med-and-down"><i className="material-icons">search</i>Books</a>
                         <a href="#!" className="sidenav-trigger" data-target="mobile-links">
                             <i className="material-icons">menu</i>
                         </a>
